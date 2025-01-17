@@ -1,0 +1,101 @@
+# # # <h1>New Post</h1>
+
+# # # <%= form_with(model: @post, local: true) do |form| %>
+# # #   <% if @post.errors.any? %>
+# # #     <div>
+# # #       <h2>There were errors with your submission:</h2>
+# # #       <ul>
+# # #         <% @post.errors.full_messages.each do |message| %>
+# # #           <li><%= message %></li>
+# # #         <% end %>
+# # #       </ul>
+# # #     </div>
+# # #   <% end %>
+
+# # #   <div>
+# # #     <%= form.label :title %>
+# # #     <%= form.text_field :title %>
+# # #   </div>
+
+# # #   <div>
+# # #     <%= form.label :body %>
+# # #     <%= form.text_area :body %>
+# # #   </div>
+
+# # #   <%= form.submit 'Create Post' %>
+# # # <% end %>
+
+# # # <%= link_to 'Back', posts_path %>  <!-- Link to go back to the list of posts -->
+# # <h1>Create a New Post</h1>
+
+# # <%= form_with model: @post, local: true do |form| %>
+# #   <% if @post.errors.any? %>
+# #     <div class="errors">
+# #       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+# #       <ul>
+# #         <% @post.errors.full_messages.each do |message| %>
+# #           <li><%= message %></li>
+# #         <% end %>
+# #       </ul>
+# #     </div>
+# #   <% end %>
+
+# #   <div>
+# #     <%= form.label :title %>
+# #     <%= form.text_field :title %>
+# #   </div>
+
+# #   <div>
+# #     <%= form.label :body %>
+# #     <%= form.text_area :body %>
+# #   </div>
+
+# #   <div>
+# #     <%= form.submit "Create Post" %>
+# #   </div>
+# # <% end %>
+
+# <%= form_tag posts_path, method: :post, multipart: true do %>
+#     <div style="text-align: center;">
+#       <label for="title" style="font-size: 1.2em; color: #4b0082;">Title</label>
+#       <br>
+#       <%= text_field_tag :title, nil, style: 'padding: 10px; width: 300px; font-size: 1.2em;' %>
+#       <br><br>
+  
+#       <label for="body" style="font-size: 1.2em; color: #4b0082;">Body</label>
+#       <br>
+#       <%= text_area_tag :body, nil, style: 'padding: 10px; width: 300px; font-size: 1.2em; height: 150px;' %>
+#       <br><br>
+  
+#       <label for="image" style="font-size: 1.2em; color: #4b0082;">Image</label>
+#       <br>
+#       <%= file_field_tag :image, style: 'font-size: 1.2em; padding: 10px;' %>
+#       <br><br>
+  
+#       <%= submit_tag "Create Post", style: 'padding: 10px 20px; background-color: #32cd32; color: white; border-radius: 8px; font-size: 1.2em;' %>
+#     </div>
+
+
+#   <% end %>
+<h1 style="color: #32cd32; font-size: 2em; text-align: center;">Create a New Post</h1>
+
+<%= form_tag posts_path, method: :post, multipart: true do %>
+  <div style="text-align: center;">
+    <label for="title" style="font-size: 1.2em; color: #4b0082;">Title</label>
+    <br>
+    <%= text_field_tag :title, nil, style: 'padding: 10px; width: 300px; font-size: 1.2em;' %>
+    <br><br>
+
+    <label for="body" style="font-size: 1.2em; color: #4b0082;">Body</label>
+    <br>
+    <%= text_area_tag :body, nil, style: 'padding: 10px; width: 300px; font-size: 1.2em; height: 150px;' %>
+    <br><br>
+
+    <label for="image" style="font-size: 1.2em; color: #4b0082;">Image</label>
+    <br>
+    <%= file_field_tag :image, style: 'font-size: 1.2em; padding: 10px;' %>
+    <br><br>
+
+    <%= submit_tag "Create Post", style: 'padding: 10px 20px; background-color: #32cd32; color: white; border-radius: 8px; font-size: 1.2em;' %>
+  </div>
+<% end %>

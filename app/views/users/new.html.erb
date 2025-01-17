@@ -1,0 +1,14 @@
+<!-- app/views/users/new.html.erb (Signup Form) -->
+<%= form_with url: users_path, method: :post do |f| %>
+  <%= f.text_field :username, placeholder: "Username" %>
+  <%= f.email_field :email, placeholder: "Email" %>
+  <%= f.password_field :password, placeholder: "Password" %>
+  <%= f.submit "Sign Up" %>
+<% end %>
+
+<!-- app/views/sessions/new.html.erb (Login Form) -->
+<%= form_with url: session_path, method: :post do |f| %>
+  <%= f.email_field :email, placeholder: "Email" %>
+  <%= f.password_field :password, placeholder: "Password" %>
+  <%= f.submit "Login" %>
+<% end %>

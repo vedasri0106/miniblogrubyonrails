@@ -1,0 +1,125 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiniBlog</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fafafa;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    header {
+      background-color: #4CAF50;
+      padding: 20px;
+      color: white;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    .logo {
+      width: 100px;
+      margin-top: 10px;
+    }
+
+    .post-container {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 15px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .post {
+      background-color: #f9f9f9;
+      padding: 20px;
+      margin: 10px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .post h2 {
+      font-size: 1.8em;
+      color: #333;
+    }
+
+    .post p {
+      font-size: 1.2em;
+      color: #555;
+    }
+
+    .post img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+
+    .button {
+      display: inline-block;
+      margin: 20px 0;
+      padding: 12px 24px;
+      background-color: #32cd32;
+      color: white;
+      font-size: 1.2em;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background-color: #28a745;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="https://mir-s3-cdn-cf.behance.net/projects/404/b526cf169633765.Y3JvcCwxMzgwLDEwODAsMjcwLDA.png" alt="Blog Logo" class="logo">
+    <h1>Welcome to My Mini Blog</h1>
+  </header>
+
+  <div class="post-container">
+    <h2>All Posts</h2>
+
+    <% if @posts.any? %>
+      <% @posts.each do |post| %>
+        <div class="post">
+          <h2><%= post[:title] %></h2>
+          <p><%= post[:body] %></p>
+          
+          <% if post[:image] %>
+            <div>
+              <img src="/<%= post[:image] %>" alt="<%= post[:title] %> image">
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    <% else %>
+      <p>No posts available. Start creating your posts!</p>
+    <% end %>
+
+    <a href="<%= new_post_path %>" class="button">Create a New Post</a>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 ReelON. All rights reserved.</p>
+  </footer>
+</body>
+</html>

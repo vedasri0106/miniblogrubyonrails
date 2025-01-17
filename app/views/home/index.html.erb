@@ -1,0 +1,14 @@
+<h1>All Posts</h1>
+
+<% @posts.each do |post| %>
+  <div>
+    <h2><%= post.title %></h2>
+    <p><%= post.body %></p>
+    <p><%= post.user.username %></p>  <!-- Display the username of the author -->
+    <%= link_to 'Show', post_path(post) %> <!-- Link to show the individual post -->
+    <%= link_to 'Edit', edit_post_path(post) %> <!-- Link to edit the post -->
+    <%= link_to 'Delete', post_path(post), method: :delete, data: { confirm: 'Are you sure?' } %>  <!-- Link to delete the post -->
+  </div>
+<% end %>
+
+<%= link_to 'New Post', new_post_path %>  <!-- Link to create a new post -->

@@ -1,0 +1,12 @@
+<h1><%= @post.title %></h1>
+<p><%= @post.body %></p>
+
+<h2>Comments</h2>
+<div id="comments_<%= @post.id %>">
+  <%= render partial: "comments/comment", collection: Comment.find_by_post_id(@post.id), as: :comment %>
+</div>
+
+<%= form_with model: [@post, Comment.new], local: false do |form| %>
+  <%= form.text_area :content, placeholder: "Add a comment..." %>
+  <%= form.submit "Comment" %>
+<% end %>
